@@ -1,0 +1,52 @@
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+   /* height: 100%;  */
+}
+
+body 
+{
+  font-family: sans-serif;
+  overflow: hidden;
+  background-color:#ffffff;
+  /* background-image: url("./index.jpg");
+  background-repeat: no-repeat;
+  background-position: auto;
+  background-size: 90% 80% ; */
+  /* height: 100%;  */
+}
+
+.scene,.scene1,.scene2,canvas
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* .back
+{
+  margin-left: 73vw  1366vw;
+  margin-top: 5.859375vh;
+  margin-right: 73vw  1366vw;
+  margin-bottom: 5.859375vh;
+  position: absolute;
+  width: 89.311859vw;
+  height: 67.31771vh; 
+} */
+
+/*
+width: 1366px;
+  height: 607px; */
+
+  .back
+{
+  margin-left: 73px;
+  margin-top: 45px;
+  margin-right: 73px;
+  margin-bottom: 45px;
+  position: absolute;
+  width: 1220px;
+  height: 517px; 
+}
