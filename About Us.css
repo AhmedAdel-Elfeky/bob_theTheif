@@ -1,0 +1,37 @@
+#Cover{
+    width: 70%;
+    margin-left: 20%;
+    height: 500px;
+    background: url("d8ac7a8e9f8bf25b1cf81b98c7ae0d76.GIF") no-repeat;  
+}
+
+#photos{
+    border-radius: 50%;
+    background: url("pp1.jpg"); 
+    width: 130px; 
+    height: 220px; 
+    margin-top: 200px;
+    margin-left: 400px;
+    display: block;
+    visibility: hidden;
+    position: relative;
+}
+
+#script{
+    /* display: none; */
+    font-family: 'Comic Sans MS';
+    font-size: large;
+    position: relative;
+    top: 5px;
+    margin-left: 570px;
+}
+
+#script1{
+    /* display: none; */
+    font-family: 'serif';
+    font-size: large;
+    position: relative;
+    margin-left: 470px;
+    top:0px;
+    margin-top: 0px;
+}
