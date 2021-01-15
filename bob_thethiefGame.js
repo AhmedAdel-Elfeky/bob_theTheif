@@ -1,9 +1,8 @@
 
-// var scrn=document.querySelector(".scene1");
-// // const margLR=(73/scrn.clientWidth)*100;
-// // const margTB=(45/scrn.clientHeight)*100;
-const margLR=(73/1366)*100;
-const margTB=(45/604)*100;
+var scrn=document.querySelector(".scene1");
+
+var margLR=(73/1366)*100;
+var margTB=(45/604)*100;
 var backGroundImage = document.getElementsByClassName("back")[0];
 backGroundImage.style.marginLeft=margLR+"vw";
 backGroundImage.style.marginRight=margLR+"vw";
@@ -11,6 +10,21 @@ backGroundImage.style.marginTop=margTB+"vh";
 backGroundImage.style.marginBottom=margTB+"vh";
 backGroundImage.style.width=(100-2*margLR) +"vw";
 backGroundImage.style.height=(100-2*margTB) +"vh";
+
+function BackGroundResize()
+{
+  margLR=((73/1366)*scrn.clientWidth);
+  margTB=((45/1366)*scrn.clientHeight);
+  backGroundImage.style.marginLeft=margLR;
+  backGroundImage.style.marginRight=margLR;
+  backGroundImage.style.marginTop=margTB;
+  backGroundImage.style.marginBottom=margTB;
+  backGroundImage.style.width=(scrn.clientWidth-2*margLR);
+  backGroundImage.style.height=(scrn.clientHeight-2*margTB);
+  console.log(container.clientWidth,container.clientHeight)
+}
+
+window.addEventListener("resize", BackGroundResize);
 
 let container;
 let camera;
@@ -36,11 +50,9 @@ function init() {
 
  
 var fov = thief_size; // the distance between image and screen
-// const aspect = container.clientWidth/container.clientHeight;
+//const aspect = container.clientWidth/container.clientHeight;
 const aspect=1366/607;
-console.log(container.clientWidth,container.clientHeight)
-console.log(screen.width);
-console.log(screen.height);
+console.log(container.clientWidth,container.clientHeight);
 const near = 0.1;
 const far = 100000;
 
