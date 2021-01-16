@@ -1,0 +1,42 @@
+#Cover{
+    width: 70%;
+    margin-left: 20%;
+    height: 500px;
+    background: url("aboutUs_img/work.gif") no-repeat;
+}
+
+ #photos{
+    border-radius: 50%;
+    background: url("aboutUs_img/pp1.jpg"); 
+    width: 130px; 
+    height: 220px; 
+    margin-top: 100px;
+    margin-left: 400px;
+    display: block;
+    position: relative;
+    
+} 
+/* .imageBorder
+{
+    margin: 40px;
+    border: 2px solid green;
+} */
+
+#script{
+    /* display: none; */
+    font-family: 'Comic Sans MS';
+    font-size: large;
+    position: relative;
+    top: 5px;
+    margin-left: 570px;
+}
+
+#script1{
+    /* display: none; */
+    font-family: 'serif';
+    font-size: large;
+    position: relative;
+    margin-left: 470px;
+    top:0px;
+    margin-top: 0px;
+}
