@@ -1,0 +1,81 @@
+body{
+    background-color: rgb(238, 171, 39);
+    font-family: 'Comic Sans MS';
+    text-align: center;
+    color: rgb(0, 0, 0)
+}
+#Cover{
+    background: url("howiplayloop.gif") no-repeat center center ; 
+    width: 650px;
+    height: 470px;
+    margin-left: 25%;
+}
+p{
+    font-size: xx-large;
+}
+.arrow{
+    height: 60px;
+    width: 60px;
+}
+#left-arrow{
+    height: 110px;
+    width: 70px;
+}
+#up-text{
+    /* color:rgb(238, 77, 45) */
+}
+#left-text{
+    /* color:rgb(255,99, 101) */
+}
+#GameOver{
+    /* color: rgb(229, 40, 41); */
+}
+#loser{
+    height: 50px;
+    width: 50px;
+    margin-bottom: 0px;
+    padding: 0px;
+    position: absolute;
+    left: 600px;
+}
+#loser-img{
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    
+}
+#oops{
+    width: 200px;
+    height: 200px;
+    display: block;
+    padding: 0px;
+    margin-top: 0px;
+    margin-left: 450px;
+    margin-bottom: 90px;
+}
+#oops_text{
+    /* color: rgb(242, 231, 29); */
+    display: block;
+    position: absolute;
+    font-size: xx-large;
+    margin-top: 20px;
+    padding: 0px;
+    margin-left: 300px;
+    /* bottom: 30px; */
+}
+#coins-text{
+    display: block;
+    font-size: xx-large;
+    margin-top: 100px;
+    position: absolute;
+    margin-left: 40px;
+    margin-top: 120px;
+}
+
+#coins-img{
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top:-10px;
+    left:400px;
+}
