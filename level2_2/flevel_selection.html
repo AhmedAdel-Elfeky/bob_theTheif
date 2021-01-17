@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <title>Bob The Theif</title>
+    <link rel="stylesheet" href="css/flevels_style.css">
+</head>
+<body>
+    <audio id="aud" src="Robbery_Bob_Soundtracks.mp3"></audio>
+    <div >
+        <img src="imgs/select_level.jpeg" alt="levels" usemap="#level_selections" class="levels">
+        <map name="level_selections">
+            <!--<area shape="rect" coords="1554,44,1621,97" onmouseover="document.getElementById('aud').play()" onmouseout="document.getElementById('aud').pause()"/>-->
+            <area shape="poly" coords="240,227,253,470,460,476,521,225" href="level1_2/bob_thethiefGame.html">
+            <area shape="poly" coords="551,236,480,482,776,482,765,237" href="level2.html">
+            <area shape="poly" coords="789,224,779,482,1023,480,1033,230" href="level3.html">
+            <area shape="rect" coords="0,0,200,450" onmouseover="document.getElementById('audioIDNerine').play()" onmouseout="document.getElementById('audioIDNerine').pause()"/>      
+            <area shape="circle" coords="76,660,40" href="intro.html" alt="go_back_to_start">
+        
+        </map>
+    
+    </div>
+
+    <script src="JS/flevels.js" type="module" > </script>
+    <script src="JS/imageMapResizer.min.js"> </script>	
+</body>
+</html>

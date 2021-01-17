@@ -1,0 +1,26 @@
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+body 
+{
+  font-family: sans-serif;
+  overflow: hidden;
+  background-color:#ffffff;
+}
+
+
+.levels{
+  
+  margin-left: 73px;
+  margin-top: 45px;
+  margin-right: 73px;
+  margin-bottom: 45px;
+  position: absolute;
+  width: 1220px;
+    height: 517px; 
+}
