@@ -1,21 +1,42 @@
+
 #Cover{
     width: 70%;
     margin-left: 20%;
     height: 500px;
-    background: url("d8ac7a8e9f8bf25b1cf81b98c7ae0d76.GIF") no-repeat;  
+    background: url("aboutUs_img/work.gif") white no-repeat;
+    top: 0px;
+    
 }
 
-#photos{
+.c{
+    background-color: white;
+    height: 500px;
+    width: 100%;
+}
+
+body{
+    /* background-color: rgb(142, 18,53); */
+    background-size: 1350px 300px;
+    margin-top: 40px;
+    background-position: right 600px;
+}
+
+ #photos{
     border-radius: 50%;
-    background: url("pp1.jpg"); 
+    background: url("aboutUs_img/pp1.jpg"); 
     width: 130px; 
-    height: 220px; 
-    margin-top: 200px;
+    height: 155px; 
+    margin-top: 100px;
     margin-left: 400px;
     display: block;
-    visibility: hidden;
     position: relative;
-}
+    
+} 
+/* .imageBorder
+{
+    margin: 40px;
+    border: 2px solid green;
+} */
 
 #script{
     /* display: none; */
@@ -23,7 +44,7 @@
     font-size: large;
     position: relative;
     top: 5px;
-    margin-left: 570px;
+    margin-left: 600px;
 }
 
 #script1{
@@ -31,7 +52,7 @@
     font-family: 'serif';
     font-size: large;
     position: relative;
-    margin-left: 470px;
+    margin-left: 500px;
     top:0px;
     margin-top: 0px;
 }
