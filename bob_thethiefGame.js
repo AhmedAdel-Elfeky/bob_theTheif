@@ -490,11 +490,11 @@ function f()
   if(pnum==1)
   {
     pnum=0;
-    back.src="backG1.jpg"
+    back.src="img/backG1.jpg"
   }
   else
   {
-    back.src="backG2.jpg"
+    back.src="img/backG2.jpg"
     pnum=1;
   }
 }
