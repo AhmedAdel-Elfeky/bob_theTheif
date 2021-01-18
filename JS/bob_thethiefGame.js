@@ -1,3 +1,4 @@
+console.log(screen.width,screen.height);
 const margLR = (73 / 1366) * 100;
 const margTB = (45 / 604) * 100;
 var backGroundImage = document.getElementsByClassName("back")[0];
@@ -8,7 +9,22 @@ backGroundImage.style.marginBottom = margTB + "vh";
 backGroundImage.style.width = (100 - 2 * margLR) + "vw"
 backGroundImage.style.height = (100 - 2 * margTB) + "vh"
 
-
+/////////////////////////////////////////////////////////////////////
+function resize(top,left,elementid){
+  let positionLeft=(left/1366)*100;
+  let positionTop=(top/604)*100;
+  let element= document.getElementById(elementid);
+  element.style.top=positionTop+"vh";
+  element.style.left=positionLeft+"vw";
+}
+resize(62,950,"Level")
+resize(60,140,"countDown")
+resize(60,300,"coinCounterDiv")
+resize(490,280,"coinDiv1")
+resize(410,630,"coinDiv2")
+resize(110,320,"coinDiv3")
+resize(210,780,"coinDiv4")
+resize(310,520,"coinDiv5")
 /*********************************************************************************************/
 // Class Name: Charcter
 // Class Description: This Class contains Properties and Methos Of Game Charcter
@@ -48,7 +64,7 @@ function init(charcterSize, src, sceneDiv, Gameobj) {
   Gameobj.container = document.querySelector("." + sceneDiv);
   Gameobj.scene = new THREE.Scene();
   let fov = charcterSize; // the distance between image and screen
-  const aspect = Gameobj.container.clientWidth / Gameobj.container.clientHeight;
+  const aspect = 1366/607;
   const near = 0.1;
   const far = 100000;
 
@@ -75,7 +91,7 @@ function init(charcterSize, src, sceneDiv, Gameobj) {
     Gameobj.obj = gltf.scene.children[0]
   });
 
-  window.addEventListener("resize", Gameobj.onWindowResize());
+  window.addEventListener("resize", Gameobj.onWindowResize);
 }
 
 /******************************** Theif intialization *********************************************/
@@ -416,40 +432,53 @@ var CoinDiv = document.getElementsByClassName("coinDiv")
 var CoinCounterDiv = document.getElementById("coinCounterDiv")
 var coin = 0;
 let mySound = new sound("/audio/coin.wav");
+let BG_music = new sound("/audio/Robbery_Bob_Soundtracks.mp3");
 
+var coinsFlag = [1,1,1,1,1];
 
-function spaceKeyPressed() {
-  if (coin != 5) {
+function spaceKeyPressed(){
+  if(coin != 5)
+  {
     //First Floor
-
-    if (theif.xposition == 32 && theif.yposition == 18) {
+    
+    if(theif.xposition == 32 && theif.yposition == 18 && coinsFlag[0]==1 )
+    {
+      coinsFlag[0]=0;
       coin++;
       CoinDiv[0].style.display = "inline"
       mySound.play();
     }
-
-    // second floor
-    else if (theif.xposition == 4 && theif.yposition == 11) {
+   
+   // second floor
+   else if(theif.xposition == 4  && theif.yposition == 11 && coinsFlag[1]==1)
+    {
+      coinsFlag[1]=0;
       CoinDiv[1].style.display = "inline"
       coin++;
       mySound.play();
     }
-
+   
     //Third Floor
-    else if (theif.xposition == 11 && theif.yposition == 3.5) {
-      CoinDiv[4].style.display = "inline"
-      coin++;
-      mySound.play();
-    }
-    //Fourth Floor
-    else if (theif.xposition == -8 && theif.yposition == -3.7) {
+   else if(theif.xposition == 11 && theif.yposition == 3.5 && coinsFlag[2]==1)
+   {
+    coinsFlag[2]=0;
+     CoinDiv[4].style.display = "inline"
+     coin++;
+     mySound.play();
+   }
+   //Fourth Floor
+    else if(theif.xposition == -8  && theif.yposition == -3.7 && coinsFlag[3]==1)
+   {
+      coinsFlag[3]=0;
       coin++;
       CoinDiv[3].style.display = "inline"
       mySound.play();
-    }
+   }
 
 
-    else if (theif.xposition == 28 && theif.yposition == -11.1) {
+    else if(theif.xposition == 28 && theif.yposition == -11.1 && coinsFlag[4]==1)
+    {
+      coinsFlag[4]=0;
       coin++;
       CoinDiv[2].style.display = "inline"
       mySound.play();
@@ -458,6 +487,7 @@ function spaceKeyPressed() {
 
   }
 }
+
 
 
 function coinCounter() {
@@ -497,10 +527,21 @@ function secondPass() {
 let Count = setInterval(function () {
   secondPass();
   coinCounter();
+  BG_music.play();
 }, 1000);
+
 
 function replaceHtml(link) {
   var anchor = document.getElementById(link);
   var result = anchor.href;
   location.replace(result);
+}
+
+
+setInterval(youWin,10);
+function youWin(){
+  if(coin===5 && theif.xposition===-22 && theif.yposition ===-11.1)
+  {
+    replaceHtml("win")
+  }
 }
