@@ -1,3 +1,9 @@
+/**********************************************************************/
+//
+// window resizing
+//
+/**********************************************************************/
+
 function resize(top, left, elementid) {
   let positionLeft = (left / 1366) * 100;
   let positionTop = (top / 604) * 100;
@@ -48,6 +54,7 @@ class Character {
     this.scene = {}
     this.obj = {}
     this.animate = this.animate.bind(this);
+    this.container = {};
   }
 
   animate() {
@@ -70,7 +77,7 @@ function init(charcterSize, src, sceneDiv, Gameobj) {
   Gameobj.container = document.querySelector("." + sceneDiv);
   Gameobj.scene = new THREE.Scene();
   let fov = charcterSize; // the distance between image and screen
-  const aspect = Gameobj.container.clientWidth / Gameobj.container.clientHeight;
+  const aspect = 1366/607;
   const near = 0.1;
   const far = 100000;
 
@@ -97,7 +104,7 @@ function init(charcterSize, src, sceneDiv, Gameobj) {
     Gameobj.obj = gltf.scene.children[0]
   });
 
-  window.addEventListener("resize", Gameobj.onWindowResize());
+  window.addEventListener("resize", Gameobj.onWindowResize);
 }
 
 /******************************** Theif intialization *********************************************/
@@ -546,7 +553,7 @@ function coinCounter() {
 
 // Count Down Timer 
 
-var second = 60; //Number of seconds
+var second = 120; //Number of seconds
 var counterDiv = document.getElementById("countDown")
 
 function secondPass() {
@@ -582,13 +589,3 @@ function replaceHtml(link) {
   location.replace(result);
 }
 
-var mouse_monitor = function (e) {
-  var x = e.pageX - 73;//213 497
-  var y = e.pageY - 45;
-  console.log(x, y);
-  console.log(theif.xposition, theif.yposition);
-}
-
-window.onload = function () {
-  this.addEventListener('mousemove', mouse_monitor);
-}

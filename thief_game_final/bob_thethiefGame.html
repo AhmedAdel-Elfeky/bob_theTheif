@@ -6,11 +6,15 @@
 <meta content="utf-8" http-equiv="encoding">
 </head>
 <body>
-  <a id="gameover" href="gameover.html"></a>
+  <a id="gameover" href="gameover_1.html"></a>
   <a id="win" href="win.html"></a>
   <a id="reload" href="bob_thethiefGame.html"></a>  
   <div class="backGround">
-    <img src="imgs/backG1.jpg" alt="asd" class="back">
+    <img src="imgs/backG1.jpg" alt="asd" class="back" usemap="#level1_1">
+    <map name="level1_1">
+      <area shape="poly" coords="1200,19,1200,34,1184,43,1228,44,1228,34,1228,20" class="level_1_audio">
+    </map>
+
   </div>
 
   <div id="countDown"></div>
@@ -42,6 +46,7 @@
 
   <script src="JS/three.min.js" ></script>
   <script src="JS/GLTFLoader.js" ></script>
+  <!-- <script src="JS/imageMapResizer.min.js"> </script>	 -->
 	<script src="JS/bob_thethiefGame.js" type="module" > </script>	
 </body>
 </html>

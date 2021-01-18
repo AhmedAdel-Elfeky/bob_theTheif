@@ -1,3 +1,10 @@
+
+/**********************************************************************/
+//
+// window resizing
+//
+/**********************************************************************/
+
 const margLR = (73 / 1366) * 100;
 const margTB = (45 / 604) * 100;
 var backGroundImage = document.getElementsByClassName("back")[0];
@@ -41,6 +48,7 @@ class Character {
     this.scene = {}
     this.obj = {}
     this.animate = this.animate.bind(this);
+    this.container = {};
   }
 
   animate() {
@@ -63,7 +71,6 @@ function init(charcterSize, src, sceneDiv, Gameobj) {
   Gameobj.container = document.querySelector("." + sceneDiv);
   Gameobj.scene = new THREE.Scene();
   let fov = charcterSize; // the distance between image and screen
-  //const aspect = Gameobj.container.clientWidth / Gameobj.container.clientHeight;
   const aspect = 1366/607;
   const near = 0.1;
   const far = 100000;
@@ -501,7 +508,7 @@ function coinCounter() {
 
 // Count Down Timer 
 
-var second = 120; //Number of seconds
+var second = 180; //Number of seconds
 var counterDiv = document.getElementById("countDown")
 
 function secondPass() {

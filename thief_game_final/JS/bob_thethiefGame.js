@@ -1,4 +1,9 @@
-console.log(screen.width,screen.height);
+/**********************************************************************/
+//
+// window resizing
+//
+/**********************************************************************/
+
 const margLR = (73 / 1366) * 100;
 const margTB = (45 / 604) * 100;
 var backGroundImage = document.getElementsByClassName("back")[0];
@@ -42,6 +47,7 @@ class Character {
     this.scene = {}
     this.obj = {}
     this.animate = this.animate.bind(this);
+    this.container = {};
   }
 
   animate() {
@@ -428,11 +434,32 @@ function sound(src) {
   }
 }
 
+
+//document.getElementsByClassName("level_l_audio")[0].addEventListener('click', audioControl );
+
+let BG_music = new sound("/audio/Robbery_Bob_Soundtracks.mp3");
+BG_music.play();
+
+// var soundFlag =0;
+// function audioControl()
+// {
+//   if(soundFlag==0)
+//   {
+//     level_1_Sound.play();;
+//     soundFlag=1;
+//   }
+//   else
+//   {
+//     level_1_Sound.stop();;
+//     soundFlag=0; 
+//   }
+// }
+
 var CoinDiv = document.getElementsByClassName("coinDiv")
 var CoinCounterDiv = document.getElementById("coinCounterDiv")
 var coin = 0;
 let mySound = new sound("/audio/coin.wav");
-let BG_music = new sound("/audio/Robbery_Bob_Soundtracks.mp3");
+
 
 var coinsFlag = [1,1,1,1,1];
 
@@ -488,8 +515,6 @@ function spaceKeyPressed(){
   }
 }
 
-
-
 function coinCounter() {
   CoinCounterDiv.innerHTML = coin + "/" + "5"
   CoinDiv[0].style.display = "none"
@@ -501,7 +526,7 @@ function coinCounter() {
 
 // Count Down Timer 
 
-var second = 180; //Number of seconds
+var second = 240; //Number of seconds
 var counterDiv = document.getElementById("countDown")
 
 function secondPass() {
@@ -545,3 +570,4 @@ function youWin(){
     replaceHtml("win")
   }
 }
+

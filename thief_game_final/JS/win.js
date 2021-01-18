@@ -1,3 +1,9 @@
+/**********************************************************************/
+//
+// window resizing
+//
+/**********************************************************************/
+
 const margLR=(73/1366)*100;
 const margTB=(45/604)*100;
 var winImg = document.getElementsByClassName("you_win")[0];
@@ -9,13 +15,27 @@ winImg.style.marginBottom=margTB+"vh";
 winImg.style.width=(100-2*margLR) +"vw";
 winImg.style.height=(100-2*margTB) +"vh";
 
-var mouse_monitor = function(e) {
-    var x = e.pageX-73;
-    var y = e.pageY-45;
-    console.log(x, y);
+/**************************************************************/
+// making sound
+/**************************************************************/
+
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function () {
+    this.sound.play();
   }
-  
-  window.onload = function() {
-    this.addEventListener('mousemove', mouse_monitor);
+  this.stop = function () {
+    this.sound.pause();
   }
-  imageMapResize();
+}
+
+var winning_Sound = new sound("/audio/winning_sound.mp3");
+winning_Sound.play();
+
+imageMapResize();
+
