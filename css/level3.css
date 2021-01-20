@@ -1,0 +1,155 @@
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+   /* height: 100%;  */
+}
+
+body 
+{
+  font-family: sans-serif;
+  overflow: hidden;
+  background-color:#ffffff;
+}
+
+.scene,.scene1,.scene2,canvas
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+  .back
+{
+  margin-left: 73px;
+  margin-top: 45px;
+  margin-right: 73px;
+  margin-bottom: 45px;
+  position: absolute;
+  width: 1220px;
+  height: 517px; 
+}
+
+#countDown{
+  position: absolute;
+  left: 10.2489vw;
+  top: 9.5vh;
+  font-size: 3vmin;
+  font-weight: 1000;
+  color:gold;
+}
+
+#coinCounterDiv{
+  position: absolute;
+  left: 21.962vw;
+  top: 9.5vh;
+  font-size: 3vmin;
+  font-weight: 1000;
+  color: gold;
+  margin: 0;
+  width:30px ;
+  height: 30px;
+}
+
+@keyframes move { 0%{ left:20.49vw; top:79.125vh; } 100%{ left:20.49vw; top:11.59vh; }}
+
+#coinDiv1{
+    position: absolute;
+    animation: move .7s linear;
+    animation-play-state: paused;
+}
+
+@keyframes mymove1 { 0%{ left:46.12vw; top:65.88vh; } 100%{left:20.49vw; top:11.59vh; }}
+
+#coinDiv2{
+    position: absolute;
+    animation: mymove1 .7s linear;
+    animation-play-state: paused;
+}
+
+@keyframes mymove2 { 0%{left:23.426vw; top:16.212vh;} 100%{ left:20.49vw; top:11.59vh; }}
+
+#coinDiv3{
+    position: absolute;
+    animation: mymove2 .7s linear;
+    animation-play-state: paused;
+}
+
+@keyframes mymove3 { 0%{ left: 57.1vw; top: 32.77vh; } 100%{ left:20.49vw; top:11.59vh;}}
+
+#coinDiv4{
+    position: absolute;
+    animation: mymove3 .7s linear;
+    animation-play-state: paused;
+}
+
+@keyframes mymove4 { 0%{ left:38.07vw; top:49.32vh; } 100%{ left:20.49vw; top:11.59vh; }}
+
+#coinDiv5{
+    position: absolute;;  
+    animation: mymove4 .7s linear;
+    animation-play-state: paused;
+}
+
+
+  
+  @keyframes move5 { 0%{ left:43.92vw; top:83.68vh; } 100%{ left:20.49vw; top:11.59vh; }}
+  
+  #coinDiv6{
+      position: absolute;
+      animation: move5 .7s linear;
+      animation-play-state: paused;
+  }
+  
+  @keyframes mymove6 { 0%{ left:58.57vw; top:65.55vh; } 100%{left:20.49vw; top:11.59vh; }}
+  
+  #coinDiv7{
+      position: absolute;
+      animation: mymove6 .7s linear;
+      animation-play-state: paused;
+  }
+  
+  @keyframes mymove7 { 0%{left:54.9vw; top:21.064vh;} 100%{ left:20.49vw; top:11.59vh; }}
+  
+  #coinDiv8{
+      position: absolute;
+      animation: mymove7 .7s linear;
+      animation-play-state: paused;
+  }
+  
+  @keyframes mymove8 { 0%{ left: 38.07vw; top: 37.54vh; } 100%{ left:20.49vw; top:11.59vh;}}
+  
+  #coinDiv9{
+      position: absolute;
+      animation: mymove8 .7s linear;
+      animation-play-state: paused;
+  }
+  
+  @keyframes mymove9 { 0%{ left:76.87vw; top:49.07vh; } 100%{ left:20.49vw; top:11.59vh; }}
+  
+  #coinDiv10{
+      position: absolute;      
+      animation: mymove9 .7s linear;
+      animation-play-state: paused;
+  }
+  
+  
+  .coin{
+      width: 1vw;
+      height: 1vw;
+  }
+
+  #Level{
+    position:absolute;
+    left: 69.546vw;
+    top: 9.9vh;  
+    font-size: 3vmin;
+    font-weight: 1000;
+    color: gold;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+
+
+

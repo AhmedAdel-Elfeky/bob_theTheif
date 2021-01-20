@@ -1,33 +1,39 @@
-<!DOCTYPE >
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head> 
-	<link rel="stylesheet" href="bob_thethiefGame.css" >
+	<link rel="stylesheet" href="css/bob_thethiefGame.css" >
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
 </head>
 <body>
-  
+  <a id="gameover" href="gameover_1.html"></a>
+  <a id="win" href="win_1.html"></a>
+  <a id="reload" href="bob_thethiefGame.html"></a>  
   <div class="backGround">
-    <img src="backG1.jpg" alt="asd" class="back">
+    <img src="imgs/backG1.jpg" alt="asd" class="back" usemap="#level1_1">
+    <map name="level1_1">
+      <area shape="poly" coords="1200,19,1200,34,1184,43,1228,44,1228,34,1228,20" class="level_1_audio">
+    </map>
+
   </div>
 
   <div id="countDown"></div>
 
 
   <div id="coinDiv1" class="coinDiv">
-    <img class="coin" src="coin_icon.png" alt="coin">
+    <img class="coin" src="imgs/coin_icon.png" alt="coin">
 </div>
 <div id="coinDiv2" class="coinDiv">
-    <img class="coin" src="coin_icon.png" alt="coin">
+    <img class="coin" src="imgs/coin_icon.png" alt="coin">
 </div>
 <div id="coinDiv3" class="coinDiv">
-    <img class="coin" src="coin_icon.png" alt="coin">
+    <img class="coin" src="imgs/coin_icon.png" alt="coin">
 </div>
 <div id="coinDiv4" class="coinDiv">
-    <img class="coin" src="coin_icon.png" alt="coin">
+    <img class="coin" src="imgs/coin_icon.png" alt="coin">
 </div>
 <div id="coinDiv5" class="coinDiv">
-    <img class="coin" src="coin_icon.png" alt="coin">
+    <img class="coin" src="imgs/coin_icon.png" alt="coin">
 </div>
 
   <div id="coinCounterDiv"></div>
@@ -38,9 +44,10 @@
   <div class="scene1"></div>
   <div class="scene2"></div>
 
-  <script src="./three.min.js" ></script>
-  <script src="./GLTFLoader.js" ></script>
-	<script src="./bob_thethiefGame.js" type="module" > </script>	
+  <script src="JS/three.min.js" ></script>
+  <script src="JS/GLTFLoader.js" ></script>
+  <script src="JS/imageMapResizer.min.js"> </script>	
+	<script src="JS/bob_thethiefGame.js" type="module" > </script>	
 </body>
 </html>
 

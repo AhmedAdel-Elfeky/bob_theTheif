@@ -1,0 +1,115 @@
+* 
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+   
+}
+
+body 
+{
+  font-family: sans-serif;
+  overflow: hidden;
+  background-color:#ffffff;
+}
+
+.scene,.scene1,.scene2,canvas
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+  .back
+{
+  margin-left: 73px;
+  margin-top: 45px;
+  margin-right: 73px;
+  margin-bottom: 45px;
+  position: absolute;
+  width: 1220px;
+  height: 517px; 
+}
+
+
+  #countDown{
+    position: absolute;
+    left: 10.2489vw;
+    top: 9.5vh;
+    font-size: 3vmin;
+    font-weight: 1000;
+    color:gold;
+  }
+  
+  #coinCounterDiv{
+    position: absolute;
+    left: 21.962vw;
+    top: 9.5vh;
+    font-size: 3vmin;
+    font-weight: 1000;
+    color: gold;
+    margin: 0;
+    width:30px ;
+    height: 30px;
+  }
+  
+  @keyframes move { 0%{ left:20.49vw; top:81.125vh; } 100%{ left:21.962vw; top:10.3vh; }}
+  
+  #coinDiv1{
+      position: absolute;
+      animation: move .7s linear;
+      animation-play-state: paused;
+  }
+  
+  @keyframes mymove1 { 0%{ left:46.12vw; top:64.25vh; } 100%{left:21.962vw; top:10.3vh; }}
+  
+  #coinDiv2{
+      position: absolute;
+      animation: mymove1 .7s linear;
+      animation-play-state: paused;
+  }
+  
+  @keyframes mymove2 { 0%{left:23.426vw; top:18.212vh;} 100%{ left:21.962vw; top:10.3vh; }}
+  
+  #coinDiv3{
+      position: absolute;
+      animation: mymove2 .7s linear;
+      animation-play-state: paused;
+
+  }
+  
+  @keyframes mymove3 { 0%{ left: 57.1vw; top: 34.77vh; } 100%{ left:21.962vw; top:10.3vh;}}
+  
+  #coinDiv4{
+      position: absolute;
+      animation: mymove3 .7s linear;
+      animation-play-state: paused;
+
+  }
+  
+  @keyframes mymove4 { 0%{ left:39.531vw; top:47.77vh; } 100%{ left:21.962vw; top:10.3vh; }}
+  
+  #coinDiv5{
+      position: absolute;;
+      animation: mymove4 .7s linear;
+      animation-play-state: paused
+  }
+  
+  .coin{
+      width: 1vw;
+      height: 1vw;
+  }
+
+#Level{
+    position:absolute;
+    left: 69.546vw;
+    top: 9.9vh; 
+    font-size: 3vmin;
+    font-weight: 1000;
+    color: gold;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+
+
+
