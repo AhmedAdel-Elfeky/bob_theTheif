@@ -53,7 +53,7 @@ class Character {
 
 function init(charcterSize, src, sceneDiv, Gameobj) {
   Gameobj.container = document.querySelector("." + sceneDiv);
-  Gameobj.scene = new THREE.Scene();
+  Gameobj.scene = new THREE.Scene(); //create scene
   let fov = charcterSize; // the distance between image and screen
   const aspect = 1366/607;
   const near = 0.1;
@@ -66,17 +66,17 @@ function init(charcterSize, src, sceneDiv, Gameobj) {
   const ambient = new THREE.AmbientLight(0x404040, 9); //5 for lightening
   Gameobj.scene.add(ambient);
 
-  const light = new THREE.DirectionalLight(0xffffff, 5);
+  const light = new THREE.DirectionalLight(0xffffff, 5); //create light
   light.position.set(50, 50, 100);
-  Gameobj.scene.add(light);
+  Gameobj.scene.add(light); //add light to scene
 
   //Renderer
   Gameobj.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   Gameobj.renderer.setSize(Gameobj.container.clientWidth, Gameobj.container.clientHeight);
   Gameobj.renderer.setPixelRatio(window.devicePixelRatio);
-  Gameobj.container.appendChild(Gameobj.renderer.domElement);
+  Gameobj.container.appendChild(Gameobj.renderer.domElement); //add render to page
+  
   Gameobj.loader = new THREE.GLTFLoader();
-
   Gameobj.loader.load(src, function (gltf) {
     Gameobj.scene.add(gltf.scene);
     Gameobj.obj = gltf.scene.children[0]
@@ -133,9 +133,6 @@ function keySelection(evt) {
       break;
     case 40:
       downArrowPressed();
-      break;
-    case 32:
-      spaceKeyPressed();
       break;
     case 82:
       replaceHtml("reload")
@@ -303,9 +300,9 @@ function downArrowPressed() {
 }
 
 /*************************************************************************************************************/
-
+// animating background picture
 var back = document.images[0];
-var pnum = 1;
+var pnum = 1; //flag to background
 window.setInterval(f, 1100);
 
 function f() {
@@ -332,8 +329,8 @@ function autoMove() {
   if (!start) {
     police1.obj.rotation.z = police_left_rotation;
     police2.obj.rotation.z = police_left_rotation;
-    police1.camera.position.set(police1.xposition * 4, police1.yposition, police1.zposition);
-    police2.camera.position.set(police2.xposition * 4, police2.yposition, police2.zposition);
+    police1.camera.position.set(police1.xposition *4 , police1.yposition, police1.zposition);
+    police2.camera.position.set(police2.xposition *4 , police2.yposition, police2.zposition);
     start = 1
   }
 
@@ -368,6 +365,7 @@ function autoMove() {
 
   else
     police2.xposition--;
+
   police1.camera.position.set(police1.xposition * 4, police1.yposition, police1.zposition);
   police2.camera.position.set(police2.xposition * 4, police2.yposition, police2.zposition);
 }

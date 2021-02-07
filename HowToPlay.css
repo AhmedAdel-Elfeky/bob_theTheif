@@ -46,14 +46,12 @@ p{
     margin-bottom: 90px;
 }
 #oops_text{
-    /* color: rgb(242, 231, 29); */
     display: block;
     position: absolute;
     font-size: xx-large;
     margin-top: 20px;
     padding: 0px;
     margin-left: 300px;
-    /* bottom: 30px; */
 }
 #coins-text{
     display: block;
