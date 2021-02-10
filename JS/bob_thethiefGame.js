@@ -20,7 +20,7 @@ backGroundImage.style.height = (100 - 2 * margTB) + "vh"
 // Class Description: This Class contains Properties and Methos Of Game Charcter
 // Methods : 
 //            1- animate()
-//            2- onWindowResize() 
+//            2- init() 
 /*********************************************************************************************/
 class Character {
 
@@ -40,50 +40,61 @@ class Character {
     this.renderer.render(this.scene, this.camera)
   }
 
-
-  onWindowResize() {
-    this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
-    this.camera.updateProjectionMatrix();
-    this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
-  }
-
-}
-
-/************************************ Intialization OF The Game Charcter *************************************/
-
-function init(charcterSize, src, sceneDiv, Gameobj) {
-  Gameobj.container = document.querySelector("." + sceneDiv);
-  Gameobj.scene = new THREE.Scene(); //create scene
-  let fov = charcterSize; // the distance between image and screen
-  const aspect = 1366/607;
-  const near = 0.1;
-  const far = 100000;
-
-  //Camera setup
-  Gameobj.camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-  Gameobj.camera.position.set(Gameobj.xposition, Gameobj.yposition, Gameobj.zposition);
-
-  const ambient = new THREE.AmbientLight(0x404040, 9); //5 for lightening
-  Gameobj.scene.add(ambient);
-
-  const light = new THREE.DirectionalLight(0xffffff, 5); //create light
-  light.position.set(50, 50, 100);
-  Gameobj.scene.add(light); //add light to scene
-
-  //Renderer
-  Gameobj.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  Gameobj.renderer.setSize(Gameobj.container.clientWidth, Gameobj.container.clientHeight);
-  Gameobj.renderer.setPixelRatio(window.devicePixelRatio);
-  Gameobj.container.appendChild(Gameobj.renderer.domElement); //add render to page
+  init(charcterSize, src, sceneDiv) {
+    this.container = document.querySelector("." + sceneDiv);
+    this.scene = new THREE.Scene();
+    let fov = charcterSize; // the distance between image and screen
+    const aspect = 1366/607;
+    const near = 0.1;
+    const far = 100000;
   
-  Gameobj.loader = new THREE.GLTFLoader();
-  Gameobj.loader.load(src, function (gltf) {
-    Gameobj.scene.add(gltf.scene);
-    Gameobj.obj = gltf.scene.children[0]
-  });
-
-  window.addEventListener("resize", Gameobj.onWindowResize);
+    //Camera setup
+    this.camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+    this.camera.position.set(this.xposition, this.yposition, this.zposition);
+  
+    const ambient = new THREE.AmbientLight(0xffffff, 5); 
+    this.scene.add(ambient);
+  
+  
+    //Renderer
+    this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+    this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.container.appendChild(this.renderer.domElement);
+    this.loader = new THREE.GLTFLoader();
+  
+    this.loader.load(src, (gltf) => {
+      this.scene.add(gltf.scene); 
+      this.obj = gltf.scene.children[0]
+    });
+    
+  }
+  
 }
+
+/************************************ ON Window Resize ****************************************************/
+function theifResize() {
+  theif.camera.aspect = theif.container.clientWidth / theif.container.clientHeight;
+  theif.camera.updateProjectionMatrix();
+  theif.renderer.setSize(theif.container.clientWidth, theif.container.clientHeight);
+}
+
+function police_1_Resize() {
+  police1.camera.aspect = police1.container.clientWidth / police1.container.clientHeight;
+  police1.camera.updateProjectionMatrix();
+  police1.renderer.setSize(police1.container.clientWidth, police1.container.clientHeight);
+}
+
+function police_2_Resize() {
+  police1.camera.aspect = police2.container.clientWidth / police2.container.clientHeight;
+  police2.camera.updateProjectionMatrix();
+  police2.renderer.setSize(police2.container.clientWidth, police2.container.clientHeight);
+}
+
+window.addEventListener("resize",theifResize);
+window.addEventListener("resize", police_1_Resize);
+window.addEventListener("resize", police_2_Resize);
+
 
 /******************************** Theif intialization *********************************************/
 var theif_up_rotation = 3;
@@ -92,10 +103,9 @@ var theif_left_rotation = -1.5;
 var theif_right_rotation = 1.5;
 
 let theif = new Character(7, -11.1, 50)
-init(50, "theif/scene.gltf", "scene", theif);
+theif.init(50, "theif/scene.gltf", "scene");
 
 theif.animate();
-
 /******************************** OFFICER1 intialization *******************************************/
 var police_up_rotation = 4;
 var police_down_rotation = 1;
@@ -103,18 +113,17 @@ var police_left_rotation = 5;
 var police_right_rotation = 2;
 
 let police1 = new Character(20, -125, 700)
-init(95, "police/scene.gltf", "scene1", police1);
+police1.init(95, "police/scene.gltf", "scene1");
 
 police1.animate();
 
 /********************************** OFFICER2 Intialization *********************************************/
 
 let police2 = new Character(15, 360, 700)
-init(95, "police/scene.gltf", "scene2", police2)
+police2.init(95, "police/scene.gltf", "scene2")
 
 police2.animate();
 
-/******************************************************************************************************/
 
 /*************************************** Control Movement Of Robber **************************************/
 
@@ -133,6 +142,9 @@ function keySelection(evt) {
       break;
     case 40:
       downArrowPressed();
+      break;
+    case 32:
+      spaceKeyPressed();
       break;
     case 82:
       replaceHtml("reload")
@@ -300,9 +312,9 @@ function downArrowPressed() {
 }
 
 /*************************************************************************************************************/
-// animating background picture
+
 var back = document.images[0];
-var pnum = 1; //flag to background
+var pnum = 1;
 window.setInterval(f, 1100);
 
 function f() {
@@ -329,8 +341,8 @@ function autoMove() {
   if (!start) {
     police1.obj.rotation.z = police_left_rotation;
     police2.obj.rotation.z = police_left_rotation;
-    police1.camera.position.set(police1.xposition *4 , police1.yposition, police1.zposition);
-    police2.camera.position.set(police2.xposition *4 , police2.yposition, police2.zposition);
+    police1.camera.position.set(police1.xposition * 4, police1.yposition, police1.zposition);
+    police2.camera.position.set(police2.xposition * 4, police2.yposition, police2.zposition);
     start = 1
   }
 
@@ -365,9 +377,8 @@ function autoMove() {
 
   else
     police2.xposition--;
-
-  police1.camera.position.set(police1.xposition * 4, police1.yposition, police1.zposition);
-  police2.camera.position.set(police2.xposition * 4, police2.yposition, police2.zposition);
+  police1.camera.position.set(police1.xposition *4, police1.yposition, police1.zposition);
+  police2.camera.position.set(police2.xposition *4, police2.yposition, police2.zposition);
 }
 
 /*************************************************************************************************************/
@@ -423,20 +434,7 @@ function sound(src) {
 let BG_music = new sound("/audio/Robbery_Bob_Soundtracks.mp3");
 BG_music.play();
 
-// var soundFlag =0;
-// function audioControl()
-// {
-//   if(soundFlag==0)
-//   {
-//     level_1_Sound.play();;
-//     soundFlag=1;
-//   }
-//   else
-//   {
-//     level_1_Sound.stop();;
-//     soundFlag=0; 
-//   }
-// }
+
 
 var CoinDiv = document.getElementsByClassName("coinDiv")
 var CoinCounterDiv = document.getElementById("coinCounterDiv")
@@ -536,16 +534,21 @@ function secondPass() {
 
   var minutes = Math.floor(second / 60);
   var remindSecond = second % 60;
+
   if (minutes < 10) {
     minutes = "0" + minutes;
   }
+
   if (remindSecond < 10) {
     remindSecond = "0" + remindSecond;
   }
+
   counterDiv.innerHTML = minutes + ":" + remindSecond;
+
   if (second > 0) {
     second = second - 1;
   }
+  
   else {
     replaceHtml("gameover")
   }
